@@ -331,7 +331,7 @@
 					/Users/hawkpro16/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = "AirBnB Clone/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tipket.AirBnB-Clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,7 +354,7 @@
 					/Users/hawkpro16/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = "AirBnB Clone/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tipket.AirBnB-Clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";

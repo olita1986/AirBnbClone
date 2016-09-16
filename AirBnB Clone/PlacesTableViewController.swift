@@ -14,8 +14,22 @@ class PlacesTableViewController: UITableViewController {
     var placeTypes = [String]()
     var placePrices = [String]()
 
+    @IBAction func logOut(_ sender: AnyObject) {
+        
+        FBSDKLoginManager().logOut()
+
+        performSegue(withIdentifier: "showLoginFromPlaces", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if FBSDKAccessToken.current() != nil {
+            
+            print("User is logged in")
+        } else {
+            
+            performSegue(withIdentifier: "showLoginFromPlaces", sender: self)
+        }
 
         let url = URL(string: "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty")!
         
@@ -81,6 +95,13 @@ class PlacesTableViewController: UITableViewController {
         }
         task.resume()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -112,42 +133,6 @@ class PlacesTableViewController: UITableViewController {
 
         return cell
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

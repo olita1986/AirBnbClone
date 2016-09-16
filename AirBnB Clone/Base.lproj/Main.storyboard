@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Icv-uu-H4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3303" y="-201"/>
+            <point key="canvasLocation" x="-2970" y="-201"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iCX-ee-dIh">
@@ -114,7 +114,16 @@
                             <outlet property="delegate" destination="uKs-sW-7EP" id="Axe-aE-sIe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Places" id="4z2-JI-LbG"/>
+                    <navigationItem key="navigationItem" title="Places" id="4z2-JI-LbG">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="mcD-E8-s12">
+                            <connections>
+                                <action selector="logOut:" destination="uKs-sW-7EP" id="IS6-LT-qnJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="l0O-53-Av4" kind="show" identifier="showLoginFromPlaces" id="76M-KI-cic"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lzZ-uh-OQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
