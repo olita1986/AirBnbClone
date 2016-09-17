@@ -23,6 +23,8 @@
 		C8EEFD831D8AEAAC003E3206 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EEFD801D8AEAAC003E3206 /* FBSDKLoginKit.framework */; };
 		C8EEFD841D8AEAAC003E3206 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EEFD811D8AEAAC003E3206 /* FBSDKShareKit.framework */; };
 		C8EEFD861D8AEAC6003E3206 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EEFD851D8AEAC6003E3206 /* CoreLocation.framework */; };
+		C8EEFD8B1D8C6A4C003E3206 /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8EEFD8A1D8C6A4C003E3206 /* cat.jpg */; };
+		C8EEFD8D1D8CD3E1003E3206 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EEFD8C1D8CD3E0003E3206 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		C8EEFD811D8AEAAC003E3206 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		C8EEFD851D8AEAC6003E3206 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C8EEFD871D8AF304003E3206 /* AirBnB Clone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirBnB Clone-Bridging-Header.h"; sourceTree = "<group>"; };
+		C8EEFD8A1D8C6A4C003E3206 /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cat.jpg; path = ../../images/cat.jpg; sourceTree = "<group>"; };
+		C8EEFD8C1D8CD3E0003E3206 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8EEFD8D1D8CD3E1003E3206 /* QuartzCore.framework in Frameworks */,
 				C8EEFD861D8AEAC6003E3206 /* CoreLocation.framework in Frameworks */,
 				C8EEFD831D8AEAAC003E3206 /* FBSDKLoginKit.framework in Frameworks */,
 				C8EEFD821D8AEAAC003E3206 /* FBSDKCoreKit.framework in Frameworks */,
@@ -89,6 +94,7 @@
 				C8EEFD7A1D8AE50B003E3206 /* ProfileViewController.swift */,
 				C8EEFD7C1D8AE73F003E3206 /* LoginViewController.swift */,
 				C8EEFD601D8A2AD1003E3206 /* Main.storyboard */,
+				C8EEFD8A1D8C6A4C003E3206 /* cat.jpg */,
 				C8EEFD781D8AE150003E3206 /* house.jpg */,
 				C8EEFD661D8A2AD2003E3206 /* Assets.xcassets */,
 				C8EEFD681D8A2AD2003E3206 /* LaunchScreen.storyboard */,
@@ -111,6 +117,7 @@
 		C8EEFD7E1D8AEA67003E3206 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C8EEFD8C1D8CD3E0003E3206 /* QuartzCore.framework */,
 				C8EEFD851D8AEAC6003E3206 /* CoreLocation.framework */,
 				C8EEFD7F1D8AEAAC003E3206 /* FBSDKCoreKit.framework */,
 				C8EEFD801D8AEAAC003E3206 /* FBSDKLoginKit.framework */,
@@ -180,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8EEFD8B1D8C6A4C003E3206 /* cat.jpg in Resources */,
 				C8EEFD791D8AE150003E3206 /* house.jpg in Resources */,
 				C8EEFD6A1D8A2AD2003E3206 /* LaunchScreen.storyboard in Resources */,
 				C8EEFD671D8A2AD2003E3206 /* Assets.xcassets in Resources */,

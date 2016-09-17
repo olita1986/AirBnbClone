@@ -13,6 +13,7 @@ class PlacesTableViewController: UITableViewController {
     var placeNames = [String]()
     var placeTypes = [String]()
     var placePrices = [String]()
+    var placePictures = [String]()
 
     @IBAction func logOut(_ sender: AnyObject) {
         
@@ -23,6 +24,10 @@ class PlacesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        navigationController?.navigationBar.isTranslucent = false
+        tabBarController?.tabBar.isTranslucent = false
+        
         if FBSDKAccessToken.current() != nil {
             
             print("User is logged in")
@@ -31,9 +36,11 @@ class PlacesTableViewController: UITableViewController {
             performSegue(withIdentifier: "showLoginFromPlaces", sender: self)
         }
 
-        let url = URL(string: "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty")!
+       // let url = URL(string: "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty")!
         
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+       let url = URL(string:  "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty&locale=en-US&currency=USD&_format=for_search_results_with_minimal_pricing&_limit=30&_offset=0&location=Bogota")
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             
             if error != nil {
                 
@@ -59,29 +66,22 @@ class PlacesTableViewController: UITableViewController {
                   
                                     self.placeNames.append(listing["name"] as! String)
                                     self.placeTypes.append(listing["property_type"] as! String)
+                                    self.placePictures.append(listing["picture_url"] as! String)
                                     
    
                                 }
                                 
-                                if let pricing = item["pricing_quote"] as? NSDictionary {
+                                if let pricing = item["pricing_quote"] as? NSDictionary, let rate = pricing["rate"] as? NSDictionary {
                                     
-                                    self.placePrices.append("\(pricing["nightly_price"] as AnyObject) \(pricing["listing_currency"] as AnyObject)")
+                                    self.placePrices.append("\(rate["amount"] as AnyObject) \(rate["currency"] as AnyObject)")
                                 }
                             }
+                            
+                            self.tableView.reloadData()
                         }
                         
-                        self.tableView.reloadData()
-                        /*
-                        if let description = ((jsonResult["weather"] as? AnyObject)?[0] as? AnyObject)?["description"] as? String {
-                         
-                            DispatchQueue.main.sync(execute: {
-                         
-                         
-                            })
-                        }
- 
- */
                         
+                     
                         
                     } catch {
                         
@@ -126,13 +126,49 @@ class PlacesTableViewController: UITableViewController {
 
         // Configure the cell...
         
-        cell.placeTitleLabel.text = placeNames[indexPath.row]
-        cell.placeTypeLabel.text = placeTypes[indexPath.row]
-        cell.placePriceLabel.text = placePrices[indexPath.row]
+        
+            
+            cell.placeTitleLabel.text = placeNames[indexPath.row]
+            cell.placeTypeLabel.text = placeTypes[indexPath.row]
+            cell.placePriceLabel.text = placePrices[indexPath.row]
+        
+        let url = URL(string: placePictures[indexPath.row])!
+        
+        let request = NSMutableURLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            if error != nil {
+                
+                print(error)
+            } else {
+                
+                if let data = data {
+                    
+                    if let image = UIImage(data: data) {
+                        
+                        
+                        DispatchQueue.main.async() { () -> Void in
+                           
+                            cell.placeImageView.image = image
+                        }
+
+                    }
+                }
+            }
+            
+        }
+        
+        task.resume()
+
+        
+        
         
 
         return cell
     }
+    
+    
 
     /*
     // MARK: - Navigation

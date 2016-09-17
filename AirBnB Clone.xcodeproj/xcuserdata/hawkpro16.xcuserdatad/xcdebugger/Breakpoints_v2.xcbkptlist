@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AirBnB Clone/AppDelegate.swift"
-            timestampString = "495650354.620719"
+            timestampString = "495768672.001474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "persistentContainer"
             landmarkType = "24">
          </BreakpointContent>

@@ -176,35 +176,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ups-HD-dQ4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2W-O5-SVR">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="Wj8-P7-fJg"/>
-                                    <constraint firstAttribute="width" constant="128" id="bx0-1M-rcP"/>
+                                    <constraint firstAttribute="width" constant="343" id="1Zx-AJ-bhp"/>
+                                    <constraint firstAttribute="height" constant="21" id="GRa-L3-B4U"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2W-O5-SVR">
-                                <frame key="frameInset" minX="88" minY="241" width="206" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-BF-uzn">
-                                <frame key="frameInset" minX="16" minY="286" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR8-BF-uzn">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="KDP-iC-yqd"/>
+                                    <constraint firstAttribute="height" constant="30" id="Mzt-7F-ifV"/>
+                                </constraints>
                                 <state key="normal" title="Favourite Places"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0rm-ue-wQq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="VuN-Qh-XB5"/>
+                                    <constraint firstAttribute="height" constant="128" id="yrA-Hi-Ir2"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ups-HD-dQ4" firstAttribute="top" secondItem="OCt-2I-bFx" secondAttribute="bottom" constant="26" id="3UJ-qk-i6e"/>
-                            <constraint firstItem="ups-HD-dQ4" firstAttribute="centerX" secondItem="hRK-GS-NqK" secondAttribute="centerX" id="BVu-kT-D5E"/>
+                            <constraint firstItem="0rm-ue-wQq" firstAttribute="centerX" secondItem="hRK-GS-NqK" secondAttribute="centerX" id="4aT-9o-e5c"/>
+                            <constraint firstItem="o2W-O5-SVR" firstAttribute="centerX" secondItem="hRK-GS-NqK" secondAttribute="centerX" id="5W7-WE-2Rq"/>
+                            <constraint firstItem="o2W-O5-SVR" firstAttribute="top" secondItem="0rm-ue-wQq" secondAttribute="bottom" constant="25" id="DwF-cl-Njm"/>
+                            <constraint firstItem="0rm-ue-wQq" firstAttribute="top" secondItem="OCt-2I-bFx" secondAttribute="bottom" constant="24" id="W9g-I1-ZqT"/>
+                            <constraint firstItem="dR8-BF-uzn" firstAttribute="top" secondItem="o2W-O5-SVR" secondAttribute="bottom" constant="24" id="aX8-5S-iUN"/>
+                            <constraint firstItem="dR8-BF-uzn" firstAttribute="centerX" secondItem="hRK-GS-NqK" secondAttribute="centerX" id="j5W-ZY-DkM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="FPz-aa-oxR"/>
                     <connections>
                         <outlet property="nameLabel" destination="o2W-O5-SVR" id="wlG-LX-oga"/>
-                        <outlet property="profileImageView" destination="ups-HD-dQ4" id="szy-5N-khZ"/>
+                        <outlet property="profileImageView" destination="0rm-ue-wQq" id="qhz-0e-Pf7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHh-uY-S3j" userLabel="First Responder" sceneMemberID="firstResponder"/>
