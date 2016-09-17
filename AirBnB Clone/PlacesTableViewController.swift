@@ -14,6 +14,7 @@ class PlacesTableViewController: UITableViewController {
     var placeTypes = [String]()
     var placePrices = [String]()
     var placePictures = [String]()
+    var cache =  NSCache<AnyObject, UIImage>()
 
     @IBAction func logOut(_ sender: AnyObject) {
         
@@ -132,34 +133,45 @@ class PlacesTableViewController: UITableViewController {
             cell.placeTypeLabel.text = placeTypes[indexPath.row]
             cell.placePriceLabel.text = placePrices[indexPath.row]
         
-        let url = URL(string: placePictures[indexPath.row])!
-        
-        let request = NSMutableURLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: request as URLRequest) {
-            data, response, error in
+        if let image = cache.object(forKey: indexPath.row as AnyObject) {
             
-            if error != nil {
+             cell.placeImageView.image = image
+            
+        } else {
+            
+            let url = URL(string: placePictures[indexPath.row])!
+            
+            let request = NSMutableURLRequest(url: url)
+            let task = URLSession.shared.dataTask(with: request as URLRequest) {
+                data, response, error in
                 
-                print(error)
-            } else {
-                
-                if let data = data {
+                if error != nil {
                     
-                    if let image = UIImage(data: data) {
+                    print(error)
+                } else {
+                    
+                    if let data = data {
                         
-                        
-                        DispatchQueue.main.async() { () -> Void in
-                           
-                            cell.placeImageView.image = image
+                        if let image = UIImage(data: data) {
+                            
+                            self.cache.setObject(image, forKey: indexPath.row as AnyObject)
+                            
+                            DispatchQueue.main.async() { () -> Void in
+                                
+                                cell.placeImageView.image = image
+                            }
+                            
                         }
-
                     }
                 }
+                
             }
+            
+            task.resume()
             
         }
         
-        task.resume()
+        
 
         
         

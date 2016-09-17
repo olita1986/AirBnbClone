@@ -25,6 +25,7 @@
 		C8EEFD861D8AEAC6003E3206 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EEFD851D8AEAC6003E3206 /* CoreLocation.framework */; };
 		C8EEFD8B1D8C6A4C003E3206 /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8EEFD8A1D8C6A4C003E3206 /* cat.jpg */; };
 		C8EEFD8D1D8CD3E1003E3206 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EEFD8C1D8CD3E0003E3206 /* QuartzCore.framework */; };
+		C8EEFD8F1D8DCA8E003E3206 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD8E1D8DCA8E003E3206 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		C8EEFD871D8AF304003E3206 /* AirBnB Clone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirBnB Clone-Bridging-Header.h"; sourceTree = "<group>"; };
 		C8EEFD8A1D8C6A4C003E3206 /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cat.jpg; path = ../../images/cat.jpg; sourceTree = "<group>"; };
 		C8EEFD8C1D8CD3E0003E3206 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C8EEFD8E1D8DCA8E003E3206 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				C8EEFD731D8A2C6A003E3206 /* PlacesTableViewCell.swift */,
 				C8EEFD711D8A2C34003E3206 /* PlacesTableViewController.swift */,
+				C8EEFD8E1D8DCA8E003E3206 /* DetailViewController.swift */,
 			);
 			name = "Places Controllers";
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8EEFD8F1D8DCA8E003E3206 /* DetailViewController.swift in Sources */,
 				C8EEFD741D8A2C6A003E3206 /* PlacesTableViewCell.swift in Sources */,
 				C8EEFD761D8ADE02003E3206 /* MapViewController.swift in Sources */,
 				C8EEFD651D8A2AD2003E3206 /* AirBnB_Clone.xcdatamodeld in Sources */,
