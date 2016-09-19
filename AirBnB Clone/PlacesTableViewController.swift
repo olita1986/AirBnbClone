@@ -10,10 +10,20 @@ import UIKit
 
 class PlacesTableViewController: UITableViewController {
     
+    var placeLat = [Double]()
+    var placeLon = [Double]()
     var placeNames = [String]()
+    var placeGuests = [String]()
+    var placeAddress = [String]()
+    var placeBedrooms = [String]()
+    var placeBathrooms = [String]()
+    var placeBeds = [String]()
     var placeTypes = [String]()
+    var roomTypes = [String]()
     var placePrices = [String]()
     var placePictures = [String]()
+    var placeImages = [UIImage]()
+    var placeIds = [String]()
     var cache =  NSCache<AnyObject, UIImage>()
 
     @IBAction func logOut(_ sender: AnyObject) {
@@ -64,17 +74,31 @@ class PlacesTableViewController: UITableViewController {
                                 if let listing = item["listing"] as? NSDictionary {
                                     
                                     //print("Esto es el Nombre de la Posada: \(listing["name"] as! String)")
-                  
+                                    self.placeLat.append(listing["lat"] as! Double )
+                                    self.placeLon.append(listing["lng"] as! Double )
+                                    self.placeIds.append("\(listing["id"] as AnyObject)")
                                     self.placeNames.append(listing["name"] as! String)
                                     self.placeTypes.append(listing["property_type"] as! String)
+                                    self.roomTypes.append(listing["room_type"] as! String)
                                     self.placePictures.append(listing["picture_url"] as! String)
+                                    self.placeBathrooms.append("\(listing["bathrooms"] as AnyObject)")
+                                    self.placeBeds.append("\(listing["beds"] as AnyObject)")
+                                    self.placeBedrooms.append("\(listing["bedrooms"] as AnyObject)")
+                                    self.placeAddress.append(listing["public_address"] as! String)
                                     
    
                                 }
                                 
-                                if let pricing = item["pricing_quote"] as? NSDictionary, let rate = pricing["rate"] as? NSDictionary {
+                                if let pricing = item["pricing_quote"] as? NSDictionary {
+                                
                                     
-                                    self.placePrices.append("\(rate["amount"] as AnyObject) \(rate["currency"] as AnyObject)")
+                                    self.placeGuests.append("\(pricing["guests"] as AnyObject)")
+                                    
+                                    if let rate = pricing["rate"] as? NSDictionary {
+                                        
+                                        self.placePrices.append("\(rate["amount"] as AnyObject) \(rate["currency"] as AnyObject)")
+                                    }
+                                    
                                 }
                             }
                             
@@ -156,6 +180,8 @@ class PlacesTableViewController: UITableViewController {
                             
                             self.cache.setObject(image, forKey: indexPath.row as AnyObject)
                             
+                            self.placeImages.append(image)
+                            
                             DispatchQueue.main.async() { () -> Void in
                                 
                                 cell.placeImageView.image = image
@@ -182,14 +208,42 @@ class PlacesTableViewController: UITableViewController {
     
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        let indexPath: IndexPath = tableView.indexPathForSelectedRow!
+        
+        print(indexPath.row)
+        
+        
+        
+        let detailVC = segue.destination as! DetailViewController
+        
+        detailVC.image = placeImages[indexPath.row]
+
+        detailVC.placeTitle = placeNames[indexPath.row]
+        detailVC.placeType = placeTypes[indexPath.row]
+        detailVC.placePrice = placePrices[indexPath.row]
+        detailVC.roomType = roomTypes[indexPath.row]
+    
+        detailVC.placeBedrooms = placeBathrooms[indexPath.row]
+        detailVC.placeBathrooms = placeBedrooms[indexPath.row]
+        detailVC.placeBeds = placeBeds[indexPath.row]
+        detailVC.placeGuests = placeGuests[indexPath.row]
+        
+        detailVC.lat = placeLat[indexPath.row]
+        detailVC.lon = placeLon[indexPath.row]
+        
+        detailVC.id = placeIds[indexPath.row]
+
+        detailVC.placePublicAddress = placeAddress[indexPath.row]
+        
+ 
+ 
     }
-    */
+    
 
 }

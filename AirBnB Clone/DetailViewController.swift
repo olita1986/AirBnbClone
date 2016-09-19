@@ -10,8 +10,27 @@ import UIKit
 import MapKit
 
 class DetailViewController: UIViewController, MKMapViewDelegate {
+    
+    var placeTitle = ""
+    var placeType = ""
+    var roomType = ""
+    var placePrice = ""
+    var placeGuests = ""
+    var placeBeds = ""
+    var placeBedrooms = ""
+    var placeBathrooms = ""
+    var placePublicAddress = ""
+    var id = ""
+    
+    var image = UIImage()
+    
+    var lat = Double()
+    var lon = Double()
+    
+
     @IBOutlet weak var placeImageView: UIImageView!
 
+    @IBOutlet weak var placePriceLabel: UILabel!
     @IBOutlet weak var placeTitleLabel: UILabel!
     @IBOutlet weak var placeTypeLabel: UILabel!
     @IBOutlet weak var roomTypeLabel: UILabel!
@@ -24,7 +43,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     @IBOutlet weak var mapView: MKMapView!
-    
     @IBOutlet weak var publicAddressLabel: UILabel!
     
     
@@ -32,11 +50,112 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
 
         self.title = "Detail"
+        
+        placeImageView.image = image
+        
+        placeTitleLabel.text = placeTitle
+        placePriceLabel.text = placePrice
+        placeTypeLabel.text = placeType
+        roomTypeLabel.text = roomType
+        
+        guestLabel.text = placeGuests
+        bedroomsLabel.text = placeBedrooms
+        bathroomsLabel.text = placeBathrooms
+        bedLabel.text = placeBeds
+        
+        publicAddressLabel.text = placePublicAddress
+        
+        descriptionTextView.layer.borderWidth = 1
+        descriptionTextView.layer.borderColor = UIColor.black.cgColor
+        
+        parseJson(id: id)
+        
+        setMap(lat: lat, lon: lon)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func parseJson (id: String) {
+        
+        let url = URL(string:  "https://api.airbnb.com/v2/listings/" + id + "?client_id=3092nxybyb0otqw18e8nh5nty&_format=v1_legacy_for_p3")
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            
+            if error != nil {
+                
+                print(error)
+            } else {
+                
+                if let urlContent = data {
+                    
+                    do {
+                        
+                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        
+                
+                        if let result = jsonResult["listing"] as? NSDictionary {
+        
+                            if let text = result["description"] as? String {
+                                
+                                
+                                print(text)
+                                DispatchQueue.main.async() { () -> Void in
+                                    
+                                    self.descriptionTextView.text = text
+                                }
+                                
+                            }
+                            
+ 
+                        }
+                        
+                        
+                        
+                        
+                    } catch {
+                        
+                        
+                    }
+                    
+                    
+                }
+            }
+            
+        }
+        task.resume()
+
+    }
+    
+    func setMap (lat: Double, lon: Double) {
+        
+        
+        let latitude: CLLocationDegrees = lat
+        
+        let longitude: CLLocationDegrees = lon
+        
+        let latDelta: CLLocationDegrees = 0.05
+        
+        let lonDelta: CLLocationDegrees = 0.05
+        
+        let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
+        
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
+        
+        mapView.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.title = placeTitle
+        annotation.subtitle = placePrice
+
+        annotation.coordinate = location
+        
+        mapView.addAnnotation(annotation)
     }
     
 
