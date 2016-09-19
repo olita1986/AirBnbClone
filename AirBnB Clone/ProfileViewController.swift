@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController {
         
         
         
-        profileImageView.image = UIImage(named: "house.jpg")
+        profileImageView.image = UIImage(named: "user.jpg")
         
     
         // Checking if for User info

@@ -74,7 +74,7 @@
                                     <frame key="frameInset" width="375" height="266"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="house.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="QAr-F5-V6P">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="house.png" translatesAutoresizingMaskIntoConstraints="NO" id="QAr-F5-V6P">
                                             <frame key="frameInset" width="375" height="194"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -148,7 +148,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNJ-9c-2ws">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Vsn-Jo-M5b">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vsn-Jo-M5b">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="359" id="U3G-oa-gO2"/>
                                                     <constraint firstAttribute="height" constant="208" id="hY3-qh-CTm"/>
@@ -398,6 +398,7 @@
                     <navigationItem key="navigationItem" title="Locations" id="yWR-Sg-hJz"/>
                     <connections>
                         <outlet property="mapView" destination="bkq-O6-gF5" id="VQw-l4-wHw"/>
+                        <segue destination="ldl-6B-9r3" kind="show" identifier="showDetailFromMap" id="zfM-Vz-rdw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -463,7 +464,7 @@
         <scene sceneID="Wzh-PV-Kb8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RRG-Fl-jo7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Places" id="NcH-yq-Btf"/>
+                    <tabBarItem key="tabBarItem" title="Places" image="interior-25.png" id="NcH-yq-Btf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pTU-IB-ndi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -482,7 +483,7 @@
         <scene sceneID="gEc-19-mro">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T6g-pV-Jga" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="kzv-ls-q6l"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map-25.png" id="kzv-ls-q6l"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HiN-Px-6a6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -501,7 +502,7 @@
         <scene sceneID="DYh-Tr-yRi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Edd-bw-RBp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="Up4-Iu-tKY"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="administrator-25.png" id="Up4-Iu-tKY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fSv-Xk-r84">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -518,6 +519,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="house.jpg" width="600" height="438"/>
+        <image name="administrator-25.png" width="25" height="25"/>
+        <image name="house.png" width="3576" height="2977"/>
+        <image name="interior-25.png" width="25" height="25"/>
+        <image name="map-25.png" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="PPI-rZ-scJ"/>
+    </inferredMetricsTieBreakers>
 </document>

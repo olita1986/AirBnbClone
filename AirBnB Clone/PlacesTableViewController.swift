@@ -49,7 +49,7 @@ class PlacesTableViewController: UITableViewController {
 
        // let url = URL(string: "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty")!
         
-       let url = URL(string:  "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty&locale=en-US&currency=USD&_format=for_search_results_with_minimal_pricing&_limit=30&_offset=0&location=Bogota")
+       let url = URL(string:  "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty&locale=en-US&currency=USD&_format=for_search_results&_limit=30&_offset=0&location=Bogota")
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             
@@ -94,10 +94,14 @@ class PlacesTableViewController: UITableViewController {
                                     
                                     self.placeGuests.append("\(pricing["guests"] as AnyObject)")
                                     
+                                    self.placePrices.append("\(pricing["localized_nightly_price"] as AnyObject) \(pricing["localized_currency"] as AnyObject)")
+                                    
+                                    /*
                                     if let rate = pricing["rate"] as? NSDictionary {
                                         
                                         self.placePrices.append("\(rate["amount"] as AnyObject) \(rate["currency"] as AnyObject)")
                                     }
+ */
                                     
                                 }
                             }

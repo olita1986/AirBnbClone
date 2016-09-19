@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C80D461E1D907759001E65FD /* map-25.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D461D1D907758001E65FD /* map-25.png */; };
+		C80D46201D90789F001E65FD /* location_filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D461F1D90789F001E65FD /* location_filled-25.png */; };
+		C80D46221D9079D5001E65FD /* interior-25.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46211D9079D5001E65FD /* interior-25.png */; };
+		C80D46241D907A2D001E65FD /* administrator-25.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46231D907A2D001E65FD /* administrator-25.png */; };
+		C80D46281D907C26001E65FD /* apartment-3.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46251D907C26001E65FD /* apartment-3.png */; };
+		C80D46291D907C26001E65FD /* bighouse.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46261D907C26001E65FD /* bighouse.png */; };
+		C80D462A1D907C26001E65FD /* motel-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46271D907C26001E65FD /* motel-2.png */; };
+		C80D462D1D907E61001E65FD /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D462C1D907E61001E65FD /* CustomPointAnnotation.swift */; };
+		C80D462F1D90826D001E65FD /* lodging-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D462E1D90826D001E65FD /* lodging-2.png */; };
+		C80D46311D9082B0001E65FD /* bed_breakfast1-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46301D9082B0001E65FD /* bed_breakfast1-2.png */; };
+		C80D46371D909B8B001E65FD /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46361D909B8B001E65FD /* house.png */; };
+		C80D46391D909E24001E65FD /* user.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C80D46381D909E24001E65FD /* user.jpg */; };
 		C8EEFD5D1D8A2AD1003E3206 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD5C1D8A2AD1003E3206 /* AppDelegate.swift */; };
 		C8EEFD5F1D8A2AD1003E3206 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD5E1D8A2AD1003E3206 /* ViewController.swift */; };
 		C8EEFD621D8A2AD1003E3206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8EEFD601D8A2AD1003E3206 /* Main.storyboard */; };
@@ -29,6 +41,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C80D461D1D907758001E65FD /* map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-25.png"; path = "../../../../Downloads/iOS7_icons_free/PNG/25/Maps/map-25.png"; sourceTree = "<group>"; };
+		C80D461F1D90789F001E65FD /* location_filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "location_filled-25.png"; path = "../../../../Downloads/iOS7_icons_free/PNG/25/Maps/location_filled-25.png"; sourceTree = "<group>"; };
+		C80D46211D9079D5001E65FD /* interior-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "interior-25.png"; path = "../../../../Downloads/iOS7_icons_free/PNG/25/Household/interior-25.png"; sourceTree = "<group>"; };
+		C80D46231D907A2D001E65FD /* administrator-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "administrator-25.png"; sourceTree = "<group>"; };
+		C80D46251D907C26001E65FD /* apartment-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apartment-3.png"; sourceTree = "<group>"; };
+		C80D46261D907C26001E65FD /* bighouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bighouse.png; sourceTree = "<group>"; };
+		C80D46271D907C26001E65FD /* motel-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "motel-2.png"; sourceTree = "<group>"; };
+		C80D462C1D907E61001E65FD /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
+		C80D462E1D90826D001E65FD /* lodging-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lodging-2.png"; sourceTree = "<group>"; };
+		C80D46301D9082B0001E65FD /* bed_breakfast1-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bed_breakfast1-2.png"; sourceTree = "<group>"; };
+		C80D46361D909B8B001E65FD /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
+		C80D46381D909E24001E65FD /* user.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = user.jpg; sourceTree = "<group>"; };
 		C8EEFD591D8A2AD1003E3206 /* AirBnB Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AirBnB Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8EEFD5C1D8A2AD1003E3206 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8EEFD5E1D8A2AD1003E3206 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C80D462B1D907DDF001E65FD /* Map Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C8EEFD751D8ADE02003E3206 /* MapViewController.swift */,
+				C80D462C1D907E61001E65FD /* CustomPointAnnotation.swift */,
+			);
+			name = "Map Controllers";
+			sourceTree = "<group>";
+		};
 		C8EEFD501D8A2AD1003E3206 = {
 			isa = PBXGroup;
 			children = (
@@ -89,13 +122,24 @@
 		C8EEFD5B1D8A2AD1003E3206 /* AirBnB Clone */ = {
 			isa = PBXGroup;
 			children = (
+				C80D462B1D907DDF001E65FD /* Map Controllers */,
 				C8EEFD771D8ADE15003E3206 /* Places Controllers */,
 				C8EEFD5C1D8A2AD1003E3206 /* AppDelegate.swift */,
 				C8EEFD5E1D8A2AD1003E3206 /* ViewController.swift */,
-				C8EEFD751D8ADE02003E3206 /* MapViewController.swift */,
 				C8EEFD7A1D8AE50B003E3206 /* ProfileViewController.swift */,
 				C8EEFD7C1D8AE73F003E3206 /* LoginViewController.swift */,
 				C8EEFD601D8A2AD1003E3206 /* Main.storyboard */,
+				C80D46381D909E24001E65FD /* user.jpg */,
+				C80D46361D909B8B001E65FD /* house.png */,
+				C80D462E1D90826D001E65FD /* lodging-2.png */,
+				C80D46251D907C26001E65FD /* apartment-3.png */,
+				C80D46261D907C26001E65FD /* bighouse.png */,
+				C80D46301D9082B0001E65FD /* bed_breakfast1-2.png */,
+				C80D46271D907C26001E65FD /* motel-2.png */,
+				C80D46231D907A2D001E65FD /* administrator-25.png */,
+				C80D46211D9079D5001E65FD /* interior-25.png */,
+				C80D461F1D90789F001E65FD /* location_filled-25.png */,
+				C80D461D1D907758001E65FD /* map-25.png */,
 				C8EEFD8A1D8C6A4C003E3206 /* cat.jpg */,
 				C8EEFD781D8AE150003E3206 /* house.jpg */,
 				C8EEFD661D8A2AD2003E3206 /* Assets.xcassets */,
@@ -190,10 +234,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C80D46371D909B8B001E65FD /* house.png in Resources */,
+				C80D46281D907C26001E65FD /* apartment-3.png in Resources */,
 				C8EEFD8B1D8C6A4C003E3206 /* cat.jpg in Resources */,
+				C80D462F1D90826D001E65FD /* lodging-2.png in Resources */,
+				C80D462A1D907C26001E65FD /* motel-2.png in Resources */,
+				C80D46201D90789F001E65FD /* location_filled-25.png in Resources */,
+				C80D46391D909E24001E65FD /* user.jpg in Resources */,
+				C80D46221D9079D5001E65FD /* interior-25.png in Resources */,
 				C8EEFD791D8AE150003E3206 /* house.jpg in Resources */,
+				C80D46291D907C26001E65FD /* bighouse.png in Resources */,
 				C8EEFD6A1D8A2AD2003E3206 /* LaunchScreen.storyboard in Resources */,
+				C80D46241D907A2D001E65FD /* administrator-25.png in Resources */,
+				C80D461E1D907759001E65FD /* map-25.png in Resources */,
 				C8EEFD671D8A2AD2003E3206 /* Assets.xcassets in Resources */,
+				C80D46311D9082B0001E65FD /* bed_breakfast1-2.png in Resources */,
 				C8EEFD621D8A2AD1003E3206 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +266,7 @@
 				C8EEFD651D8A2AD2003E3206 /* AirBnB_Clone.xcdatamodeld in Sources */,
 				C8EEFD721D8A2C34003E3206 /* PlacesTableViewController.swift in Sources */,
 				C8EEFD7D1D8AE73F003E3206 /* LoginViewController.swift in Sources */,
+				C80D462D1D907E61001E65FD /* CustomPointAnnotation.swift in Sources */,
 				C8EEFD7B1D8AE50B003E3206 /* ProfileViewController.swift in Sources */,
 				C8EEFD5F1D8A2AD1003E3206 /* ViewController.swift in Sources */,
 				C8EEFD5D1D8A2AD1003E3206 /* AppDelegate.swift in Sources */,
@@ -394,6 +450,7 @@
 				C8EEFD701D8A2AD2003E3206 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

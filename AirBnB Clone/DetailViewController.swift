@@ -21,11 +21,14 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     var placeBathrooms = ""
     var placePublicAddress = ""
     var id = ""
+    var url = ""
     
-    var image = UIImage()
+    var image: UIImage?
     
     var lat = Double()
     var lon = Double()
+    
+  
     
 
     @IBOutlet weak var placeImageView: UIImageView!
@@ -51,7 +54,25 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
 
         self.title = "Detail"
         
-        placeImageView.image = image
+        
+        if image != nil {
+            
+            placeImageView.image = image
+            
+        } else {
+            
+            if url.isEmpty {
+                
+                placeImageView.image = UIImage(named: "house.png")
+            } else {
+                
+                downloadImage(url: url)
+                
+            }
+            
+            
+        }
+        
         
         placeTitleLabel.text = placeTitle
         placePriceLabel.text = placePrice
@@ -158,6 +179,38 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotation(annotation)
     }
     
+    func downloadImage (url: String) {
+        
+        let url = URL(string: url)!
+        
+        let request = NSMutableURLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            if error != nil {
+                
+                print(error)
+            } else {
+                
+                if let data = data {
+                    
+                    if let image = UIImage(data: data) {
+                        
+                        
+                        DispatchQueue.main.async() { () -> Void in
+                            
+                            self.placeImageView.image = image
+                        }
+                        
+                    }
+                }
+            }
+            
+        }
+        
+        task.resume()
+
+    }
 
     /*
     // MARK: - Navigation
