@@ -15,6 +15,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
         // Do any additional setup after loading the view.
         
+        // Setting Facebook login button
+        
         let loginButton = FBSDKLoginButton()
         
         loginButton.readPermissions = ["email"]

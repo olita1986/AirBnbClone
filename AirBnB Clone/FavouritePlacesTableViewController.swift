@@ -12,11 +12,13 @@ import Parse
 class FavouritePlacesTableViewController: UITableViewController {
     
     var placesArray = [PFObject]()
+    
+    var image = [UIImage]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
+        // Getting the favorite places from localstorage
         
         self.title = "Favourite Places"
         
@@ -44,7 +46,10 @@ class FavouritePlacesTableViewController: UITableViewController {
             
             print(task.result?.count)
             
-            self.tableView.reloadData()
+            DispatchQueue.main.async() { () -> Void in
+                
+                self.tableView.reloadData()
+            }
             return task
         })
     }
@@ -87,6 +92,8 @@ class FavouritePlacesTableViewController: UITableViewController {
             let restorePath = documentDirectory + "/" + (placesArray[indexPath.row].object(forKey: "placeId") as? String)! + ".png"
             
             print(restorePath)
+            
+            image.append(UIImage(contentsOfFile: restorePath)!)
             
             cell.placeImageView.image = UIImage(contentsOfFile: restorePath)
             
@@ -156,14 +163,45 @@ class FavouritePlacesTableViewController: UITableViewController {
     }
     */
 
-    /*
+   
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let indexPath: IndexPath = tableView.indexPathForSelectedRow!
+        
+        print(indexPath.row)
+        
+        
+        
+        let detailVC = segue.destination as! DetailViewController
+        
+        detailVC.image = image[indexPath.row]
+        
+        detailVC.placeTitle = (placesArray[indexPath.row].object(forKey: "placeName") as? String)!
+        detailVC.placeType = (placesArray[indexPath.row].object(forKey: "placeType") as? String)!
+        detailVC.placePrice = (placesArray[indexPath.row].object(forKey: "placePrice") as? String)!
+        detailVC.roomType = (placesArray[indexPath.row].object(forKey: "roomType") as? String)!
+        
+        detailVC.placeBedrooms = (placesArray[indexPath.row].object(forKey: "bedrooms") as? String)!
+        detailVC.placeBathrooms = (placesArray[indexPath.row].object(forKey: "bathrooms") as? String)!
+        detailVC.placeBeds = (placesArray[indexPath.row].object(forKey: "beds") as? String)!
+        detailVC.placeGuests = (placesArray[indexPath.row].object(forKey: "guests") as? String)!
+        
+        detailVC.lat = (placesArray[indexPath.row].object(forKey: "location") as! PFGeoPoint).latitude
+        detailVC.lon = (placesArray[indexPath.row].object(forKey: "location") as! PFGeoPoint).longitude
+        
+        detailVC.id = (placesArray[indexPath.row].object(forKey: "placeId") as? String)!
+        
+        detailVC.placePublicAddress = (placesArray[indexPath.row].object(forKey: "publicAddress") as? String)!
+        
+        detailVC.placeDesc = (placesArray[indexPath.row].object(forKey: "description") as? String)!
+        
+        detailVC.senderView = 1
     }
-    */
+    
 
 }

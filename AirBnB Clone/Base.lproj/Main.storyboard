@@ -367,6 +367,7 @@
                         <outlet property="bedLabel" destination="xad-br-PZK" id="Bxc-Sv-iva"/>
                         <outlet property="bedroomsLabel" destination="gBd-fT-bJc" id="zGH-Ya-CAU"/>
                         <outlet property="descriptionTextView" destination="BhF-aw-HpD" id="ruW-EE-HE9"/>
+                        <outlet property="favouriteButton" destination="1Yv-xD-Fk4" id="Y77-B0-mq0"/>
                         <outlet property="guestLabel" destination="Cp1-bp-diu" id="Izo-vL-VLL"/>
                         <outlet property="mapView" destination="j6D-nj-uUm" id="1fh-Dq-wGg"/>
                         <outlet property="placeImageView" destination="Vsn-Jo-M5b" id="XiL-iM-eEG"/>
@@ -407,9 +408,7 @@
                             <constraint firstAttribute="trailing" secondItem="bkq-O6-gF5" secondAttribute="trailing" id="miv-2X-BnP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Locations" id="yWR-Sg-hJz">
-                        <barButtonItem key="rightBarButtonItem" title="Relocate" id="16f-ua-SXq"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Locations" id="yWR-Sg-hJz"/>
                     <connections>
                         <outlet property="mapView" destination="bkq-O6-gF5" id="VQw-l4-wHw"/>
                         <segue destination="ldl-6B-9r3" kind="show" identifier="showDetailFromMap" id="zfM-Vz-rdw"/>
@@ -467,6 +466,7 @@
                                     <outlet property="placePriceLabel" destination="SUD-qc-QLY" id="I3H-mC-j6D"/>
                                     <outlet property="placeTitleLabel" destination="T5y-kE-cYq" id="T4B-wS-Sfo"/>
                                     <outlet property="placeTypeLabel" destination="B41-vE-LPU" id="VWT-aJ-ryO"/>
+                                    <segue destination="ldl-6B-9r3" kind="show" id="ByH-ZE-7Pz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -603,6 +603,6 @@
         <image name="map-25.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PPI-rZ-scJ"/>
+        <segue reference="zfM-Vz-rdw"/>
     </inferredMetricsTieBreakers>
 </document>

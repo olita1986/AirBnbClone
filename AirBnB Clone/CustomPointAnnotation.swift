@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 
+
+// this is to make a custom annotation to hold information
 class CustomPointAnnotation: MKPointAnnotation {
     
     var imageName: String!

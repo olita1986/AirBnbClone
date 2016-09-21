@@ -13,6 +13,8 @@ import Parse
 
 class DetailViewController: UIViewController, MKMapViewDelegate {
     
+    var senderView = Int()
+    
     var placeTitle = ""
     var placeType = ""
     var roomType = ""
@@ -51,7 +53,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var publicAddressLabel: UILabel!
     
+    @IBOutlet weak var favouriteButton: UIButton!
     @IBAction func addFavourite(_ sender: AnyObject) {
+        
+        
+        // SAving data using parse localstorage 
         
         let place = PFObject(className: "Places")
         
@@ -71,6 +77,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         place["userId"] = FBSDKAccessToken.current().userID
         
         place["placeId"] = id
+        
+        // there is an glitch with saving and retrieving images from parse local store, so I decided to save the image on the directory
         
         if image != nil {
             
@@ -107,6 +115,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
                 print(error)
             } else if success {
                 
+                self.favouriteButton.isHidden = true
                 self.createAlert(title: "Success!", message: "Your place has been saved")
                // place.saveInBackground()
             }
@@ -120,7 +129,31 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
 
         self.title = "Detail"
         
-        
+        if senderView == 1 {
+            
+            favouriteButton.isHidden = true
+            
+        } else if senderView == 2 {
+            
+            // checking if the place is already favourited
+            
+            let query = PFQuery(className: "Places")
+            query.fromLocalDatastore()
+            query.whereKey("placeId", equalTo: self.id)
+            
+            query.getFirstObjectInBackground().continue({ (task: BFTask) -> Any? in
+                if let error = task.error {
+                    print("Error: \(error)")
+                    return task
+                }
+                
+                self.favouriteButton.isHidden = true
+                
+                return task
+            })
+            
+            
+        }
         if image != nil {
             
             placeImageView.image = image
@@ -155,7 +188,16 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         descriptionTextView.layer.borderWidth = 1
         descriptionTextView.layer.borderColor = UIColor.black.cgColor
         
-        parseJson(id: id)
+        if senderView == 1 {
+            
+            descriptionTextView.text = placeDesc
+            
+        } else {
+            
+            parseJson(id: id)
+            
+        }
+        
         
         setMap(lat: lat, lon: lon)
     }
@@ -164,6 +206,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // Extrating the description
     
     func parseJson (id: String) {
         
@@ -218,6 +262,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
 
     }
     
+    // Setting the map detail
+    
     func setMap (lat: Double, lon: Double) {
         
         
@@ -246,6 +292,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         
         mapView.addAnnotation(annotation)
     }
+    
+    
     
     func downloadImage (url: String) {
         

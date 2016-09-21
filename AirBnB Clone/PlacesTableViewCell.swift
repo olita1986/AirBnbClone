@@ -8,6 +8,7 @@
 
 import UIKit
 
+// setting the custom cell
 
 class PlacesTableViewCell: UITableViewCell {
 

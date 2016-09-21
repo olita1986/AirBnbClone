@@ -67,6 +67,9 @@ class ProfileViewController: UIViewController {
                         
                     }
                     
+                    
+                    // Getting the image from facebook user
+                    
                     if let picture = result["picture"] as? NSDictionary, let data = picture["data"] as? NSDictionary, let url = data["url"] as? String {
                         
                         print(url)

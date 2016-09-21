@@ -14,6 +14,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     //var placesArray = [Dictionary<String, Double>()]
     //var placePrices = [String]()
     
+    
+    
     var locationManager = CLLocationManager()
     var city = ""
     var city2 = ""
@@ -24,7 +26,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Set up location manager
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -54,6 +57,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // Setting up map
     func setMap (lat: Double, lon: Double) {
         
         
@@ -64,13 +69,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
         let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(location, 10000, 10000)
+        
+        mapView.showsUserLocation = true
+        
+       
+       // Button to relocate on user's location
+        let button = MKUserTrackingBarButtonItem.init(mapView: mapView)
+        
+        self.navigationItem.rightBarButtonItem = button
 
         mapView.setRegion(region, animated: true)
         
         
     }
     
+    // Getting places from AirBnB api
+    
     func getPlacesLocations (city: String) {
+        
         
         let url = URL(string:  "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty&locale=en-US&currency=USD&_format=for_search_results&_limit=30&_offset=0&location=" + city.replacingOccurrences(of: " ", with: "%20"))
         
@@ -157,6 +173,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                                     
                                 }
 
+                                // Adding info on a custom annotation
+                                
                                 let annotation = CustomPointAnnotation()
                                 
                                 annotation.title = type
@@ -176,18 +194,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                                 annotation.lat = lat
                                 annotation.lon = lon
                                 annotation.url = url
-                                
-                                
+                            
                                 self.mapView.addAnnotation(annotation)
+                                
                                 
                             }
                             
-                            self.mapView.reloadInputViews()
+                            
                             
                         }
                         
                         
-                        
+                        self.mapView.reloadInputViews()
                         
                         
                     } catch {
@@ -207,6 +225,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
+        // This is for the system to handle user's location
+        if (annotation is MKUserLocation) {
+            return nil
+        }
+        
         let reuseIdentifier = "pin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
@@ -216,6 +239,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         } else {
             annotationView?.annotation = annotation
         }
+        
+        // Setting Image and Callout Action for map pins
         
         let button: UIButton = UIButton.init(type: UIButtonType.detailDisclosure)
         
