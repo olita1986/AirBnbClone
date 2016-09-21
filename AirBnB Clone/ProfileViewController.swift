@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController {
 
@@ -17,8 +18,6 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         
         profileImageView.image = UIImage(named: "user.jpg")

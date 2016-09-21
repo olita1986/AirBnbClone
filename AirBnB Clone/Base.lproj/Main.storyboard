@@ -106,7 +106,7 @@
                                     <outlet property="placePriceLabel" destination="NPO-Yy-wFy" id="6Is-XV-04I"/>
                                     <outlet property="placeTitleLabel" destination="dpy-80-8md" id="8aa-tW-AiE"/>
                                     <outlet property="placeTypeLabel" destination="NiX-BQ-h92" id="DIP-tw-LeI"/>
-                                    <segue destination="ldl-6B-9r3" kind="show" id="PPI-rZ-scJ"/>
+                                    <segue destination="ldl-6B-9r3" kind="show" identifier="viewDetails" id="PPI-rZ-scJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -290,6 +290,16 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yv-xD-Fk4">
+                                                <frame key="frameInset" minX="238" minY="267" width="129" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.22965037560000001" green="0.4059843004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Add to Favourites"/>
+                                                <connections>
+                                                    <action selector="addFavourite:" destination="ldl-6B-9r3" eventType="touchUpInside" id="96x-RP-MnP"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -348,6 +358,8 @@
                             <constraint firstItem="F8o-ve-yGc" firstAttribute="top" secondItem="Wmx-vZ-LSA" secondAttribute="bottom" id="ufB-eb-3ww"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="927"/>
                     <connections>
@@ -395,7 +407,9 @@
                             <constraint firstAttribute="trailing" secondItem="bkq-O6-gF5" secondAttribute="trailing" id="miv-2X-BnP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Locations" id="yWR-Sg-hJz"/>
+                    <navigationItem key="navigationItem" title="Locations" id="yWR-Sg-hJz">
+                        <barButtonItem key="rightBarButtonItem" title="Relocate" id="16f-ua-SXq"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="bkq-O6-gF5" id="VQw-l4-wHw"/>
                         <segue destination="ldl-6B-9r3" kind="show" identifier="showDetailFromMap" id="zfM-Vz-rdw"/>
@@ -404,6 +418,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-436" y="523.98800599700155"/>
+        </scene>
+        <!--Favourite Places Table View Controller-->
+        <scene sceneID="kEI-jW-4n7">
+            <objects>
+                <tableViewController id="ilq-PR-OQ4" customClass="FavouritePlacesTableViewController" customModule="AirBnB_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="276" sectionHeaderHeight="28" sectionFooterHeight="28" id="qX7-Cm-ZVU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="276" id="UnZ-23-hdC" customClass="PlacesTableViewCell" customModule="AirBnB_Clone" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="276"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UnZ-23-hdC" id="Uwl-3U-AJ7">
+                                    <frame key="frameInset" width="375" height="275"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="house.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jeb-aa-Fxz">
+                                            <frame key="frameInset" width="375" height="194"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B41-vE-LPU">
+                                            <frame key="frameInset" minX="19" minY="231" width="167" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUD-qc-QLY">
+                                            <frame key="frameInset" minX="266" minY="236" width="79" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5y-kE-cYq">
+                                            <frame key="frameInset" minX="19" minY="202" width="326" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="placeImageView" destination="Jeb-aa-Fxz" id="reZ-77-4py"/>
+                                    <outlet property="placePriceLabel" destination="SUD-qc-QLY" id="I3H-mC-j6D"/>
+                                    <outlet property="placeTitleLabel" destination="T5y-kE-cYq" id="T4B-wS-Sfo"/>
+                                    <outlet property="placeTypeLabel" destination="B41-vE-LPU" id="VWT-aJ-ryO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ilq-PR-OQ4" id="fMu-XK-p6j"/>
+                            <outlet property="delegate" destination="ilq-PR-OQ4" id="QSU-aL-J0t"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3X-WE-Lv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="400.80000000000001" y="-923.38830584707648"/>
         </scene>
         <!--Profile-->
         <scene sceneID="cUu-pc-8ZN">
@@ -432,6 +507,9 @@
                                     <constraint firstAttribute="height" constant="30" id="Mzt-7F-ifV"/>
                                 </constraints>
                                 <state key="normal" title="Favourite Places"/>
+                                <connections>
+                                    <segue destination="ilq-PR-OQ4" kind="show" id="arL-Wx-4oa"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0rm-ue-wQq">
                                 <constraints>

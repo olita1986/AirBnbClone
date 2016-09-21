@@ -69,5 +69,9 @@
         <key>NSAllowsArbitraryLoads</key>
         <true/>
     </dict>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Because I always want to know where you are</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Because I want know where you are</string>
 </dict>
 </plist>

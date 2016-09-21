@@ -19,6 +19,17 @@
 		C80D46311D9082B0001E65FD /* bed_breakfast1-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46301D9082B0001E65FD /* bed_breakfast1-2.png */; };
 		C80D46371D909B8B001E65FD /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46361D909B8B001E65FD /* house.png */; };
 		C80D46391D909E24001E65FD /* user.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C80D46381D909E24001E65FD /* user.jpg */; };
+		C80D46621D91B261001E65FD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D46611D91B261001E65FD /* SystemConfiguration.framework */; };
+		C80D46641D91B26A001E65FD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D46631D91B26A001E65FD /* AudioToolbox.framework */; };
+		C80D46681D91B2C7001E65FD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D46671D91B2C7001E65FD /* libsqlite3.tbd */; };
+		C80D466A1D91B44F001E65FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D46691D91B44F001E65FD /* CoreGraphics.framework */; };
+		C80D466C1D91B489001E65FD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D466B1D91B489001E65FD /* CFNetwork.framework */; };
+		C80D466E1D91B4B6001E65FD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D466D1D91B4B6001E65FD /* Security.framework */; };
+		C80D46701D91B4CA001E65FD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D466F1D91B4C9001E65FD /* libz.tbd */; };
+		C80D46721D91B514001E65FD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D46711D91B514001E65FD /* StoreKit.framework */; };
+		C80D46761D91B5F4001E65FD /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D46751D91B5F4001E65FD /* Bolts.framework */; };
+		C8ECCEC41D91BDBE00983B9C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ECCEC31D91BDBE00983B9C /* Parse.framework */; };
+		C8ECCEC61D91CB1500983B9C /* FavouritePlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ECCEC51D91CB1500983B9C /* FavouritePlacesTableViewController.swift */; };
 		C8EEFD5D1D8A2AD1003E3206 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD5C1D8A2AD1003E3206 /* AppDelegate.swift */; };
 		C8EEFD5F1D8A2AD1003E3206 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD5E1D8A2AD1003E3206 /* ViewController.swift */; };
 		C8EEFD621D8A2AD1003E3206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8EEFD601D8A2AD1003E3206 /* Main.storyboard */; };
@@ -53,6 +64,17 @@
 		C80D46301D9082B0001E65FD /* bed_breakfast1-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bed_breakfast1-2.png"; sourceTree = "<group>"; };
 		C80D46361D909B8B001E65FD /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
 		C80D46381D909E24001E65FD /* user.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = user.jpg; sourceTree = "<group>"; };
+		C80D46611D91B261001E65FD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C80D46631D91B26A001E65FD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C80D46671D91B2C7001E65FD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C80D46691D91B44F001E65FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C80D466B1D91B489001E65FD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C80D466D1D91B4B6001E65FD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C80D466F1D91B4C9001E65FD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		C80D46711D91B514001E65FD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C80D46751D91B5F4001E65FD /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		C8ECCEC31D91BDBE00983B9C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		C8ECCEC51D91CB1500983B9C /* FavouritePlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritePlacesTableViewController.swift; sourceTree = "<group>"; };
 		C8EEFD591D8A2AD1003E3206 /* AirBnB Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AirBnB Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8EEFD5C1D8A2AD1003E3206 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8EEFD5E1D8A2AD1003E3206 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +104,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C80D46761D91B5F4001E65FD /* Bolts.framework in Frameworks */,
+				C80D46721D91B514001E65FD /* StoreKit.framework in Frameworks */,
+				C80D46701D91B4CA001E65FD /* libz.tbd in Frameworks */,
+				C80D466E1D91B4B6001E65FD /* Security.framework in Frameworks */,
+				C8ECCEC41D91BDBE00983B9C /* Parse.framework in Frameworks */,
+				C80D466C1D91B489001E65FD /* CFNetwork.framework in Frameworks */,
+				C80D466A1D91B44F001E65FD /* CoreGraphics.framework in Frameworks */,
+				C80D46681D91B2C7001E65FD /* libsqlite3.tbd in Frameworks */,
+				C80D46641D91B26A001E65FD /* AudioToolbox.framework in Frameworks */,
+				C80D46621D91B261001E65FD /* SystemConfiguration.framework in Frameworks */,
 				C8EEFD8D1D8CD3E1003E3206 /* QuartzCore.framework in Frameworks */,
 				C8EEFD861D8AEAC6003E3206 /* CoreLocation.framework in Frameworks */,
 				C8EEFD831D8AEAAC003E3206 /* FBSDKLoginKit.framework in Frameworks */,
@@ -100,6 +132,26 @@
 				C80D462C1D907E61001E65FD /* CustomPointAnnotation.swift */,
 			);
 			name = "Map Controllers";
+			sourceTree = "<group>";
+		};
+		C80D46771D91B715001E65FD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C80D46381D909E24001E65FD /* user.jpg */,
+				C80D46361D909B8B001E65FD /* house.png */,
+				C80D462E1D90826D001E65FD /* lodging-2.png */,
+				C80D46251D907C26001E65FD /* apartment-3.png */,
+				C80D46261D907C26001E65FD /* bighouse.png */,
+				C80D46301D9082B0001E65FD /* bed_breakfast1-2.png */,
+				C80D46271D907C26001E65FD /* motel-2.png */,
+				C80D46231D907A2D001E65FD /* administrator-25.png */,
+				C80D46211D9079D5001E65FD /* interior-25.png */,
+				C80D461F1D90789F001E65FD /* location_filled-25.png */,
+				C80D461D1D907758001E65FD /* map-25.png */,
+				C8EEFD8A1D8C6A4C003E3206 /* cat.jpg */,
+				C8EEFD781D8AE150003E3206 /* house.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		C8EEFD501D8A2AD1003E3206 = {
@@ -122,26 +174,15 @@
 		C8EEFD5B1D8A2AD1003E3206 /* AirBnB Clone */ = {
 			isa = PBXGroup;
 			children = (
+				C80D46771D91B715001E65FD /* Images */,
 				C80D462B1D907DDF001E65FD /* Map Controllers */,
 				C8EEFD771D8ADE15003E3206 /* Places Controllers */,
 				C8EEFD5C1D8A2AD1003E3206 /* AppDelegate.swift */,
 				C8EEFD5E1D8A2AD1003E3206 /* ViewController.swift */,
 				C8EEFD7A1D8AE50B003E3206 /* ProfileViewController.swift */,
+				C8ECCEC51D91CB1500983B9C /* FavouritePlacesTableViewController.swift */,
 				C8EEFD7C1D8AE73F003E3206 /* LoginViewController.swift */,
 				C8EEFD601D8A2AD1003E3206 /* Main.storyboard */,
-				C80D46381D909E24001E65FD /* user.jpg */,
-				C80D46361D909B8B001E65FD /* house.png */,
-				C80D462E1D90826D001E65FD /* lodging-2.png */,
-				C80D46251D907C26001E65FD /* apartment-3.png */,
-				C80D46261D907C26001E65FD /* bighouse.png */,
-				C80D46301D9082B0001E65FD /* bed_breakfast1-2.png */,
-				C80D46271D907C26001E65FD /* motel-2.png */,
-				C80D46231D907A2D001E65FD /* administrator-25.png */,
-				C80D46211D9079D5001E65FD /* interior-25.png */,
-				C80D461F1D90789F001E65FD /* location_filled-25.png */,
-				C80D461D1D907758001E65FD /* map-25.png */,
-				C8EEFD8A1D8C6A4C003E3206 /* cat.jpg */,
-				C8EEFD781D8AE150003E3206 /* house.jpg */,
 				C8EEFD661D8A2AD2003E3206 /* Assets.xcassets */,
 				C8EEFD681D8A2AD2003E3206 /* LaunchScreen.storyboard */,
 				C8EEFD6B1D8A2AD2003E3206 /* Info.plist */,
@@ -164,6 +205,16 @@
 		C8EEFD7E1D8AEA67003E3206 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C8ECCEC31D91BDBE00983B9C /* Parse.framework */,
+				C80D46751D91B5F4001E65FD /* Bolts.framework */,
+				C80D46711D91B514001E65FD /* StoreKit.framework */,
+				C80D466F1D91B4C9001E65FD /* libz.tbd */,
+				C80D466D1D91B4B6001E65FD /* Security.framework */,
+				C80D466B1D91B489001E65FD /* CFNetwork.framework */,
+				C80D46691D91B44F001E65FD /* CoreGraphics.framework */,
+				C80D46671D91B2C7001E65FD /* libsqlite3.tbd */,
+				C80D46631D91B26A001E65FD /* AudioToolbox.framework */,
+				C80D46611D91B261001E65FD /* SystemConfiguration.framework */,
 				C8EEFD8C1D8CD3E0003E3206 /* QuartzCore.framework */,
 				C8EEFD851D8AEAC6003E3206 /* CoreLocation.framework */,
 				C8EEFD7F1D8AEAAC003E3206 /* FBSDKCoreKit.framework */,
@@ -264,6 +315,7 @@
 				C8EEFD741D8A2C6A003E3206 /* PlacesTableViewCell.swift in Sources */,
 				C8EEFD761D8ADE02003E3206 /* MapViewController.swift in Sources */,
 				C8EEFD651D8A2AD2003E3206 /* AirBnB_Clone.xcdatamodeld in Sources */,
+				C8ECCEC61D91CB1500983B9C /* FavouritePlacesTableViewController.swift in Sources */,
 				C8EEFD721D8A2C34003E3206 /* PlacesTableViewController.swift in Sources */,
 				C8EEFD7D1D8AE73F003E3206 /* LoginViewController.swift in Sources */,
 				C80D462D1D907E61001E65FD /* CustomPointAnnotation.swift in Sources */,
@@ -397,6 +449,14 @@
 					"$(PROJECT_DIR)/AirBnB\\ Clone",
 					"$(PROJECT_DIR)/AirBnB\\ Clone",
 					/Users/hawkpro16/Documents/FacebookSDK,
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"/Users/hawkpro16/Documents/newiOSCourse/AirBnB\\ Clone/AirBnB\\ Clone",
 				);
 				INFOPLIST_FILE = "AirBnB Clone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -420,6 +480,14 @@
 					"$(PROJECT_DIR)/AirBnB\\ Clone",
 					"$(PROJECT_DIR)/AirBnB\\ Clone",
 					/Users/hawkpro16/Documents/FacebookSDK,
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"$(PROJECT_DIR)/AirBnB\\ Clone",
+					"/Users/hawkpro16/Documents/newiOSCourse/AirBnB\\ Clone/AirBnB\\ Clone",
 				);
 				INFOPLIST_FILE = "AirBnB Clone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

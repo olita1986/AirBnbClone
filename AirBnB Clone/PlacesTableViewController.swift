@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import MapKit
 
-class PlacesTableViewController: UITableViewController {
+
+class PlacesTableViewController: UITableViewController, CLLocationManagerDelegate {
+    
+    
+    
+    var city = ""
+    var city2 = "h"
+    
+    var locationManager = CLLocationManager()
     
     var placeLat = [Double]()
     var placeLon = [Double]()
@@ -35,6 +44,14 @@ class PlacesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
+        //Location manager Set Up
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.distanceFilter =  10
+        locationManager.startUpdatingLocation()
         
         navigationController?.navigationBar.isTranslucent = false
         tabBarController?.tabBar.isTranslucent = false
@@ -47,9 +64,39 @@ class PlacesTableViewController: UITableViewController {
             performSegue(withIdentifier: "showLoginFromPlaces", sender: self)
         }
 
-       // let url = URL(string: "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty")!
+      
         
-       let url = URL(string:  "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty&locale=en-US&currency=USD&_format=for_search_results&_limit=30&_offset=0&location=Bogota")
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        locationManager.startUpdatingLocation()
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        locationManager.stopUpdatingLocation()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func updateLocation()  {
+        locationManager.requestLocation()
+    }
+    
+    func getPlaces (city: String) {
+        
+        
+        let url = URL(string:  "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty&locale=en-US&currency=USD&_format=for_search_results&_limit=30&_offset=0&location=" + city.replacingOccurrences(of: " ", with: "%20"))
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             
@@ -86,31 +133,30 @@ class PlacesTableViewController: UITableViewController {
                                     self.placeBedrooms.append("\(listing["bedrooms"] as AnyObject)")
                                     self.placeAddress.append(listing["public_address"] as! String)
                                     
-   
+                                    
                                 }
                                 
                                 if let pricing = item["pricing_quote"] as? NSDictionary {
-                                
+                                    
                                     
                                     self.placeGuests.append("\(pricing["guests"] as AnyObject)")
                                     
                                     self.placePrices.append("\(pricing["localized_nightly_price"] as AnyObject) \(pricing["localized_currency"] as AnyObject)")
                                     
                                     /*
-                                    if let rate = pricing["rate"] as? NSDictionary {
-                                        
-                                        self.placePrices.append("\(rate["amount"] as AnyObject) \(rate["currency"] as AnyObject)")
-                                    }
- */
+                                     if let rate = pricing["rate"] as? NSDictionary {
+                                     
+                                     self.placePrices.append("\(rate["amount"] as AnyObject) \(rate["currency"] as AnyObject)")
+                                     }
+                                     */
                                     
                                 }
                             }
                             
-                            self.tableView.reloadData()
+                            
                         }
-                        
-                        
-                     
+
+                        self.tableView.reloadData()
                         
                     } catch {
                         
@@ -125,17 +171,47 @@ class PlacesTableViewController: UITableViewController {
         task.resume()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    // Location Manager
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        navigationController?.navigationBar.isHidden = false
-        tabBarController?.tabBar.isHidden = false
+        let userLocation: CLLocation = locations[0]
+        
+      
+        
+        CLGeocoder().reverseGeocodeLocation(userLocation) {(placemarks, error) in
+            
+            if error != nil {
+                
+                print(error)
+            } else {
+                
+                if let placemark = placemarks?[0] {
+                    
+                    
+                    
+                    if placemark.locality != nil {
+                        
+                        
+                        print(placemark.locality!)
+                        self.city = placemark.locality!
+                        
+                        if self.city != self.city2 {
+                            
+                            self.city2 = placemark.locality!
+                            self.getPlaces(city: placemark.locality!)
+                            self.tableView.reloadData()
+                        }
+                        
+                    }
+                    
+                    
+                }
+            }
+        }
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
 
@@ -218,6 +294,10 @@ class PlacesTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        
+        if segue.identifier == "viewDetails" {
+            
+        
         let indexPath: IndexPath = tableView.indexPathForSelectedRow!
         
         print(indexPath.row)
@@ -244,6 +324,7 @@ class PlacesTableViewController: UITableViewController {
         detailVC.id = placeIds[indexPath.row]
 
         detailVC.placePublicAddress = placeAddress[indexPath.row]
+        }
         
  
  

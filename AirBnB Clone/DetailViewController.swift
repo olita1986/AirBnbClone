@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import Parse
+
 
 class DetailViewController: UIViewController, MKMapViewDelegate {
     
@@ -22,13 +24,14 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     var placePublicAddress = ""
     var id = ""
     var url = ""
+    var placeDesc = ""
     
     var image: UIImage?
     
     var lat = Double()
     var lon = Double()
     
-  
+   var activityIndicator = UIActivityIndicatorView()
     
 
     @IBOutlet weak var placeImageView: UIImageView!
@@ -48,6 +51,69 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var publicAddressLabel: UILabel!
     
+    @IBAction func addFavourite(_ sender: AnyObject) {
+        
+        let place = PFObject(className: "Places")
+        
+        
+        place["placeType"] = placeType
+        place["placeName"] = placeTitle
+        place["placePrice"] = placePrice
+        place["roomType"] = roomType
+        
+        place["beds"] = placeBeds
+        place["guests"] = placeGuests
+        place["bedrooms"] = placeBedrooms
+        place["bathrooms"] = placeBathrooms
+        
+        place["description"] = placeDesc
+        place["publicAddress"] = placePublicAddress
+        place["userId"] = FBSDKAccessToken.current().userID
+        
+        place["placeId"] = id
+        
+        if image != nil {
+            
+            
+            let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+            
+            if documentPath.count > 0 {
+                
+                let documentDirectory = documentPath[0]
+                
+                let savePath = documentDirectory + "/" + id + ".png"
+                
+                do {
+                    
+                    try UIImagePNGRepresentation(image!)?.write(to: URL(fileURLWithPath: savePath))
+                } catch {
+                    
+                }
+                
+                
+                
+            }
+        }
+        
+        place["location"] = PFGeoPoint(latitude: lat, longitude: lon)
+        
+        place.pinInBackground { (success, error) in
+            
+            UIApplication.shared.endIgnoringInteractionEvents()
+            self.activityIndicator.stopAnimating()
+            
+            if error != nil {
+                
+                print(error)
+            } else if success {
+                
+                self.createAlert(title: "Success!", message: "Your place has been saved")
+               // place.saveInBackground()
+            }
+        }
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +180,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
                     
                     do {
                         
-                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                         
                 
                         if let result = jsonResult["listing"] as? NSDictionary {
@@ -124,6 +190,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
                                 
                                 print(text)
                                 DispatchQueue.main.async() { () -> Void in
+                                    
+                                    self.placeDesc = text
                                     
                                     self.descriptionTextView.text = text
                                 }
@@ -199,6 +267,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
                         
                         DispatchQueue.main.async() { () -> Void in
                             
+                            self.image = image
+                            
                             self.placeImageView.image = image
                         }
                         
@@ -210,6 +280,33 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         
         task.resume()
 
+    }
+    
+    func createAlert (title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func activateIndicator () {
+        
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        
+        activityIndicator.center = self.view.center
+        
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
+        UIApplication.shared.beginIgnoringInteractionEvents()
     }
 
     /*

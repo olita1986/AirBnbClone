@@ -9,19 +9,44 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    var placesArray = [Dictionary<String, Double>()]
-    var placePrices = [String]()
+    //var placesArray = [Dictionary<String, Double>()]
+    //var placePrices = [String]()
+    
+    var locationManager = CLLocationManager()
+    var city = ""
+    var city2 = ""
+
+    
+    
 
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        setMap()
-        getPlacesLocations()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.distanceFilter =  10
+        locationManager.startUpdatingLocation()
+    
         
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        locationManager.startUpdatingLocation()
+    
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        locationManager.stopUpdatingLocation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,18 +54,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func setMap () {
+    func setMap (lat: Double, lon: Double) {
         
         
-        let latitude: CLLocationDegrees = 4.7139215
+        let latitude: CLLocationDegrees = lat
         
-        let longitude: CLLocationDegrees = -74.1137225
-        
-       // let latDelta: CLLocationDegrees = 200
-        
-       // let lonDelta: CLLocationDegrees = 200
-        
-       // let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
+        let longitude: CLLocationDegrees = lon
         
         let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
@@ -51,9 +70,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    func getPlacesLocations () {
+    func getPlacesLocations (city: String) {
         
-        let url = URL(string:  "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty&locale=en-US&currency=USD&_format=for_search_results&_limit=30&_offset=0&location=Bogota")
+        let url = URL(string:  "https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty&locale=en-US&currency=USD&_format=for_search_results&_limit=30&_offset=0&location=" + city.replacingOccurrences(of: " ", with: "%20"))
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             
@@ -67,10 +86,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     do {
                         
                         let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        
-                        //print(" Esto es el nombre de la posada\((((jsonResult["search_results"] as? NSArray)?[0] as? NSDictionary)?["listing"] as? NSDictionary)?["name"] as! String)")
-                        
-                        
+
                         if let items = jsonResult["search_results"] as? NSArray {
                             
                             var type = String()
@@ -95,7 +111,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                                 
                                 if let listing = item["listing"] as? NSDictionary {
                                     
-                                    //print("Esto es el Nombre de la Posada: \(listing["name"] as! String)")
+                                  
                                     url = listing["picture_url"] as! String
                                     lat = listing["lat"] as! Double
                                     lon = listing["lng"] as! Double
@@ -103,7 +119,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                                     name = listing["name"] as! String
                                     type = listing["property_type"] as! String
                                     roomType = listing["room_type"] as! String
-                                   // self.placePictures.append(listing["picture_url"] as! String)
                                     bathrooms = "\(listing["bathrooms"] as AnyObject)"
                                     beds = "\(listing["beds"] as AnyObject)"
                                     bedrooms = "\(listing["bedrooms"] as AnyObject)"
@@ -161,13 +176,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                                 annotation.lat = lat
                                 annotation.lon = lon
                                 annotation.url = url
-                    
+                                
                                 
                                 self.mapView.addAnnotation(annotation)
+                                
                             }
                             
+                            self.mapView.reloadInputViews()
                             
                         }
+                        
                         
                         
                         
@@ -218,6 +236,42 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         performSegue(withIdentifier: "showDetailFromMap", sender: self)
     }
 
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let userLocation: CLLocation = locations[0]
+        
+        setMap(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude)
+        
+        CLGeocoder().reverseGeocodeLocation(userLocation) {(placemarks, error) in
+            
+            if error != nil {
+                
+                print(error)
+            } else {
+                
+                if let placemark = placemarks?[0] {
+                    
+                    
+                    
+                    if placemark.locality != nil {
+                        
+                        self.city = placemark.locality!
+                        
+                        if self.city != self.city2 {
+                            
+                            self.city2 = placemark.locality!
+                            self.getPlacesLocations(city: placemark.locality!)
+                        }
+                        
+                    }
+                    
+  
+                }
+            }
+        }
+        
+    }
     
     // MARK: - Navigation
 
