@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C80D461E1D907759001E65FD /* map-25.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D461D1D907758001E65FD /* map-25.png */; };
-		C80D46201D90789F001E65FD /* location_filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D461F1D90789F001E65FD /* location_filled-25.png */; };
-		C80D46221D9079D5001E65FD /* interior-25.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46211D9079D5001E65FD /* interior-25.png */; };
 		C80D46241D907A2D001E65FD /* administrator-25.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46231D907A2D001E65FD /* administrator-25.png */; };
 		C80D46281D907C26001E65FD /* apartment-3.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46251D907C26001E65FD /* apartment-3.png */; };
 		C80D46291D907C26001E65FD /* bighouse.png in Resources */ = {isa = PBXBuildFile; fileRef = C80D46261D907C26001E65FD /* bighouse.png */; };
@@ -27,6 +24,8 @@
 		C80D466E1D91B4B6001E65FD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D466D1D91B4B6001E65FD /* Security.framework */; };
 		C80D46701D91B4CA001E65FD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D466F1D91B4C9001E65FD /* libz.tbd */; };
 		C80D46761D91B5F4001E65FD /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D46751D91B5F4001E65FD /* Bolts.framework */; };
+		C834D8201D93621400B9E1AF /* interior-25.png in Resources */ = {isa = PBXBuildFile; fileRef = C834D81E1D93621400B9E1AF /* interior-25.png */; };
+		C834D8211D93621400B9E1AF /* map-25.png in Resources */ = {isa = PBXBuildFile; fileRef = C834D81F1D93621400B9E1AF /* map-25.png */; };
 		C8ECCEC41D91BDBE00983B9C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ECCEC31D91BDBE00983B9C /* Parse.framework */; };
 		C8ECCEC61D91CB1500983B9C /* FavouritePlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ECCEC51D91CB1500983B9C /* FavouritePlacesTableViewController.swift */; };
 		C8EEFD5D1D8A2AD1003E3206 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD5C1D8A2AD1003E3206 /* AppDelegate.swift */; };
@@ -38,22 +37,17 @@
 		C8EEFD721D8A2C34003E3206 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD711D8A2C34003E3206 /* PlacesTableViewController.swift */; };
 		C8EEFD741D8A2C6A003E3206 /* PlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD731D8A2C6A003E3206 /* PlacesTableViewCell.swift */; };
 		C8EEFD761D8ADE02003E3206 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD751D8ADE02003E3206 /* MapViewController.swift */; };
-		C8EEFD791D8AE150003E3206 /* house.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8EEFD781D8AE150003E3206 /* house.jpg */; };
 		C8EEFD7B1D8AE50B003E3206 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD7A1D8AE50B003E3206 /* ProfileViewController.swift */; };
 		C8EEFD7D1D8AE73F003E3206 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD7C1D8AE73F003E3206 /* LoginViewController.swift */; };
 		C8EEFD821D8AEAAC003E3206 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EEFD7F1D8AEAAC003E3206 /* FBSDKCoreKit.framework */; };
 		C8EEFD831D8AEAAC003E3206 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EEFD801D8AEAAC003E3206 /* FBSDKLoginKit.framework */; };
 		C8EEFD841D8AEAAC003E3206 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EEFD811D8AEAAC003E3206 /* FBSDKShareKit.framework */; };
 		C8EEFD861D8AEAC6003E3206 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EEFD851D8AEAC6003E3206 /* CoreLocation.framework */; };
-		C8EEFD8B1D8C6A4C003E3206 /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8EEFD8A1D8C6A4C003E3206 /* cat.jpg */; };
 		C8EEFD8D1D8CD3E1003E3206 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EEFD8C1D8CD3E0003E3206 /* QuartzCore.framework */; };
 		C8EEFD8F1D8DCA8E003E3206 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEFD8E1D8DCA8E003E3206 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C80D461D1D907758001E65FD /* map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-25.png"; path = "../../../../Downloads/iOS7_icons_free/PNG/25/Maps/map-25.png"; sourceTree = "<group>"; };
-		C80D461F1D90789F001E65FD /* location_filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "location_filled-25.png"; path = "../../../../Downloads/iOS7_icons_free/PNG/25/Maps/location_filled-25.png"; sourceTree = "<group>"; };
-		C80D46211D9079D5001E65FD /* interior-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "interior-25.png"; path = "../../../../Downloads/iOS7_icons_free/PNG/25/Household/interior-25.png"; sourceTree = "<group>"; };
 		C80D46231D907A2D001E65FD /* administrator-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "administrator-25.png"; sourceTree = "<group>"; };
 		C80D46251D907C26001E65FD /* apartment-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apartment-3.png"; sourceTree = "<group>"; };
 		C80D46261D907C26001E65FD /* bighouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bighouse.png; sourceTree = "<group>"; };
@@ -71,6 +65,8 @@
 		C80D466D1D91B4B6001E65FD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C80D466F1D91B4C9001E65FD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C80D46751D91B5F4001E65FD /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		C834D81E1D93621400B9E1AF /* interior-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interior-25.png"; sourceTree = "<group>"; };
+		C834D81F1D93621400B9E1AF /* map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-25.png"; sourceTree = "<group>"; };
 		C8ECCEC31D91BDBE00983B9C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C8ECCEC51D91CB1500983B9C /* FavouritePlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritePlacesTableViewController.swift; sourceTree = "<group>"; };
 		C8EEFD591D8A2AD1003E3206 /* AirBnB Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AirBnB Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +80,6 @@
 		C8EEFD711D8A2C34003E3206 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		C8EEFD731D8A2C6A003E3206 /* PlacesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewCell.swift; sourceTree = "<group>"; };
 		C8EEFD751D8ADE02003E3206 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		C8EEFD781D8AE150003E3206 /* house.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = house.jpg; path = ../../images/house.jpg; sourceTree = "<group>"; };
 		C8EEFD7A1D8AE50B003E3206 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C8EEFD7C1D8AE73F003E3206 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C8EEFD7F1D8AEAAC003E3206 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -92,7 +87,6 @@
 		C8EEFD811D8AEAAC003E3206 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		C8EEFD851D8AEAC6003E3206 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C8EEFD871D8AF304003E3206 /* AirBnB Clone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirBnB Clone-Bridging-Header.h"; sourceTree = "<group>"; };
-		C8EEFD8A1D8C6A4C003E3206 /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cat.jpg; path = ../../images/cat.jpg; sourceTree = "<group>"; };
 		C8EEFD8C1D8CD3E0003E3206 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C8EEFD8E1D8DCA8E003E3206 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,11 +136,8 @@
 				C80D46301D9082B0001E65FD /* bed_breakfast1-2.png */,
 				C80D46271D907C26001E65FD /* motel-2.png */,
 				C80D46231D907A2D001E65FD /* administrator-25.png */,
-				C80D46211D9079D5001E65FD /* interior-25.png */,
-				C80D461F1D90789F001E65FD /* location_filled-25.png */,
-				C80D461D1D907758001E65FD /* map-25.png */,
-				C8EEFD8A1D8C6A4C003E3206 /* cat.jpg */,
-				C8EEFD781D8AE150003E3206 /* house.jpg */,
+				C834D81E1D93621400B9E1AF /* interior-25.png */,
+				C834D81F1D93621400B9E1AF /* map-25.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -284,17 +275,14 @@
 			files = (
 				C80D46371D909B8B001E65FD /* house.png in Resources */,
 				C80D46281D907C26001E65FD /* apartment-3.png in Resources */,
-				C8EEFD8B1D8C6A4C003E3206 /* cat.jpg in Resources */,
+				C834D8201D93621400B9E1AF /* interior-25.png in Resources */,
 				C80D462F1D90826D001E65FD /* lodging-2.png in Resources */,
 				C80D462A1D907C26001E65FD /* motel-2.png in Resources */,
-				C80D46201D90789F001E65FD /* location_filled-25.png in Resources */,
 				C80D46391D909E24001E65FD /* user.jpg in Resources */,
-				C80D46221D9079D5001E65FD /* interior-25.png in Resources */,
-				C8EEFD791D8AE150003E3206 /* house.jpg in Resources */,
 				C80D46291D907C26001E65FD /* bighouse.png in Resources */,
+				C834D8211D93621400B9E1AF /* map-25.png in Resources */,
 				C8EEFD6A1D8A2AD2003E3206 /* LaunchScreen.storyboard in Resources */,
 				C80D46241D907A2D001E65FD /* administrator-25.png in Resources */,
-				C80D461E1D907759001E65FD /* map-25.png in Resources */,
 				C8EEFD671D8A2AD2003E3206 /* Assets.xcassets in Resources */,
 				C80D46311D9082B0001E65FD /* bed_breakfast1-2.png in Resources */,
 				C8EEFD621D8A2AD1003E3206 /* Main.storyboard in Resources */,
