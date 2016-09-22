@@ -334,7 +334,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             detailVC.url = selectedPin.url!
             
-           
+           detailVC.senderView = 2
 
             
         }

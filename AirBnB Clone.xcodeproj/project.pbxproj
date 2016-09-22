@@ -26,7 +26,6 @@
 		C80D466C1D91B489001E65FD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D466B1D91B489001E65FD /* CFNetwork.framework */; };
 		C80D466E1D91B4B6001E65FD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D466D1D91B4B6001E65FD /* Security.framework */; };
 		C80D46701D91B4CA001E65FD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D466F1D91B4C9001E65FD /* libz.tbd */; };
-		C80D46721D91B514001E65FD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D46711D91B514001E65FD /* StoreKit.framework */; };
 		C80D46761D91B5F4001E65FD /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80D46751D91B5F4001E65FD /* Bolts.framework */; };
 		C8ECCEC41D91BDBE00983B9C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ECCEC31D91BDBE00983B9C /* Parse.framework */; };
 		C8ECCEC61D91CB1500983B9C /* FavouritePlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ECCEC51D91CB1500983B9C /* FavouritePlacesTableViewController.swift */; };
@@ -71,7 +70,6 @@
 		C80D466B1D91B489001E65FD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		C80D466D1D91B4B6001E65FD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C80D466F1D91B4C9001E65FD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		C80D46711D91B514001E65FD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C80D46751D91B5F4001E65FD /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		C8ECCEC31D91BDBE00983B9C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C8ECCEC51D91CB1500983B9C /* FavouritePlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritePlacesTableViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C80D46761D91B5F4001E65FD /* Bolts.framework in Frameworks */,
-				C80D46721D91B514001E65FD /* StoreKit.framework in Frameworks */,
 				C80D46701D91B4CA001E65FD /* libz.tbd in Frameworks */,
 				C80D466E1D91B4B6001E65FD /* Security.framework in Frameworks */,
 				C8ECCEC41D91BDBE00983B9C /* Parse.framework in Frameworks */,
@@ -207,7 +204,6 @@
 			children = (
 				C8ECCEC31D91BDBE00983B9C /* Parse.framework */,
 				C80D46751D91B5F4001E65FD /* Bolts.framework */,
-				C80D46711D91B514001E65FD /* StoreKit.framework */,
 				C80D466F1D91B4C9001E65FD /* libz.tbd */,
 				C80D466D1D91B4B6001E65FD /* Security.framework */,
 				C80D466B1D91B489001E65FD /* CFNetwork.framework */,
@@ -257,6 +253,7 @@
 				TargetAttributes = {
 					C8EEFD581D8A2AD1003E3206 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = F4F2VWBSVP;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -387,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -430,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -443,6 +440,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F4F2VWBSVP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AirBnB\\ Clone",
@@ -474,6 +473,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F4F2VWBSVP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AirBnB\\ Clone",
